@@ -104,7 +104,7 @@ async def counter(websocket, path):
 
 def main():
     # Start the WebSocket server
-    websockets.serve(counter, "localhost", 6789)
+    websockets.serve(counter, "140.82.116.3", 6789)
 
 if __name__ == "__main__":
     main()
