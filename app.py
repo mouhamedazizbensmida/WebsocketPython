@@ -103,7 +103,7 @@ async def counter(websocket, path):
         websockets.broadcast(USERS.keys(), students_event())
 
 async def main():
-    async with websockets.serve(counter, "localhost", 6789):
+    async with websockets.serve(counter, "websocketpython-onywqmaszluv84bopmsxho.streamlit.app", 6789):
         await asyncio.Future()  # run forever
 
 if __name__ == "__main__":
