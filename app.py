@@ -103,7 +103,7 @@ async def counter(websocket, path):
         websockets.broadcast(USERS.keys(), students_event())
 
 def main():
-    # Start the WebSocket server
+    st.write('Socket On')    # Start the WebSocket server
     websockets.serve(counter, "140.82.116.3", 6789)
 
 if __name__ == "__main__":
