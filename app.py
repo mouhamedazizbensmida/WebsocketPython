@@ -3,6 +3,7 @@ import json
 import logging
 import websockets
 import pymongo
+import streamlit as st
 
 logging.basicConfig()
 
@@ -50,14 +51,14 @@ async def counter(websocket, path):
         # Add to students set if the role is "Student"
         if role == "Student":
             STUDENTS.add(user_id)
-
+        
         if role == "Admin":
             ADMINS.add(user_id)
-
+        
         # Broadcast the updated user and student count
         websockets.broadcast(USERS.keys(), users_event())
         websockets.broadcast(USERS.keys(), students_event())
-
+                
         # Manage state changes
         async for message in websocket:
             event = json.loads(message)
@@ -91,18 +92,18 @@ async def counter(websocket, path):
                     STUDENTS.discard(user_id)
                 if role == "Admin":
                     ADMINS.discard(user_id)
-
+        
         # Broadcast the updated user and student count
         websockets.broadcast(USERS.keys(), users_event())
         websockets.broadcast(USERS.keys(), students_event())
 
-async def start_server():
+async def main():
     async with websockets.serve(counter, "localhost", 6789):
         await asyncio.Future()  # run forever
 
-def run_websocket_server():
+def run():
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(start_server())
+    loop.run_until_complete(main())
 
 if __name__ == "__main__":
-    run_websocket_server()
+    run()
