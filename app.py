@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from datetime import datetime
 
 # MongoDB setup
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://smidqaziz51:blXLrT8L8AXGK8a0@cluster0.qaxpi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0") 
 db = client['your_database']
 notifications_collection = db['notifications']
 users_collection = db['users']  # Assuming you have a users collection with roles
