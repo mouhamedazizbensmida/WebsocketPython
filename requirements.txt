@@ -1,3 +1,1 @@
-asyncio==3.4.3
-websockets==11.0.3
-pymongo==4.5.0
+streamlit-notification-center-component==0.0.13
