@@ -1,1 +1,2 @@
+streamlit==1.37.1
 streamlit-notification-center-component==0.0.13
